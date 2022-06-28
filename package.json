@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build:ui": "rm -rf build && cd ./front-end/ && npm run build && cp -r build ../",
+    "deploy": "git push heroku main"
   },
   "author": "Serena Liao",
   "license": "ISC",
