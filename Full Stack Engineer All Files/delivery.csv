@@ -1,0 +1,9 @@
+﻿trip_id,delivery_id,location,city,qty_delivered
+136764,1,261 Jarvis Street,Toronto,10000
+136764,2,89 Hanson Road,Brampton,20000
+136764,3,45 Garden Road,Toronto,5000
+136873,1,38 Maple Drive,Hamilton,7000
+136873,2,4489 Chesswood Drive,Hamilton,2000
+136873,3,21 Lakeshore Road,Hamilton,1100
+136998,1,86 Silver Crescent,Ottawa,20000
+136998,2,92 Alex Street,Brockville,20000
