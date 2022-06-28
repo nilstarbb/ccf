@@ -1,4 +1,6 @@
 # Canada Clean Fuels Full Stack Design Assignment
+URL: https://agile-river-35239.herokuapp.com/
+
 ## Back-End
 1. Read both CSV files and store them in two separate tables in a remote datastore.
 2. Create three APIs:
@@ -61,13 +63,13 @@ Due to time limit, this part is not completed yet.
 
 The features this part plans to have:
 - An index page to display existing trips & deliverys.
-- sorting dynamically table
-- a form for adding new delivery
-- delete delivery by clicking a `delete` button
-- double confrimation when deleting an entry.
+- Dynamic sorting table to display data.
+- A form for adding new delivery.
+- Delete delivery by clicking a `delete` button.
+- Double confrimation when deleting an entry.
 
 
 ## Further improvement
-- user
-- authorization
-- token expired
+- User authorization.
+- Token-based API call.
+- Validate requests.
