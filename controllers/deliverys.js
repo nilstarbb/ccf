@@ -1,6 +1,5 @@
 const deliverysRouter = require("express").Router();
 const Delivery = require("../models/delivery");
-const User = require("../models/user");
 
 deliverysRouter.get("/", async (request, response) => {
   const deliverys = await Delivery.find({});

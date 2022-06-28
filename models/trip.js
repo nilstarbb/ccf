@@ -9,8 +9,8 @@ const tripSchema = new mongoose.Schema({
   vehicle: String,
   vehicle2: String,
   qty: Number,
-  start_timestamp: Timestamp,
-  end_timestamp: Timestamp,
+  start_timestamp: Date,
+  end_timestamp: Date,
 });
 
 tripSchema.set("toJSON", {

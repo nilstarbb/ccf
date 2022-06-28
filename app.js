@@ -29,4 +29,8 @@ app.use(express.json());
 app.use("/api/trips", tripsRouter);
 app.use("/api/deliverys", deliverysRouter);
 
+app.get("/", (req, res) => {
+  res.send(`<p>Trip & Delivery API</p>`);
+});
+
 module.exports = app;
