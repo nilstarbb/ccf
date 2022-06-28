@@ -1,9 +1,31 @@
+const csvtojson = require("csvtojson");
+
 const deliverysRouter = require("express").Router();
 const Delivery = require("../models/delivery");
 
 deliverysRouter.get("/", async (request, response) => {
   const deliverys = await Delivery.find({});
   response.json(deliverys);
+});
+
+deliverysRouter.get("/init", async (request, response) => {
+  const fileName = "data/delivery.csv";
+  var arrayToInsert = [];
+  csvtojson()
+    .fromFile(fileName)
+    .then((source) => {
+      for (var i = 0; i < source.length; i++) {
+        var oneRow = {
+          trip_id: source[i]["delivery_id"],
+          delivery_id: source[i]["delivery_id"],
+          location: source[i]["location"],
+          city: source[i]["city"],
+          qty_delivered: source[i]["qty_delivered"],
+        };
+        arrayToInsert.push(oneRow);
+      }
+      Delivery.insertMany(arrayToInsert);
+    });
 });
 
 deliverysRouter.get("/:id", async (request, response) => {
