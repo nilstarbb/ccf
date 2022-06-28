@@ -16,7 +16,7 @@ deliverysRouter.post("/init", (request, response) => {
     .then((source) => {
       for (var i = 0; i < source.length; i++) {
         var oneRow = {
-          trip_id: source[i]["delivery_id"],
+          trip_id: source[i]["trip_id"],
           delivery_id: source[i]["delivery_id"],
           location: source[i]["location"],
           city: source[i]["city"],

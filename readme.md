@@ -59,7 +59,10 @@ Example: `DELETE /api/deliverys/62bafeb5205e58eebbbc3629`
 
 ## Front-End
 
-Due to time limit, this part is not completed yet.
+Create a simple UI to execute these APIs. Feel free to organize this webpage however you like however it should do at least the following:
+1. Section that Displays Either one trip or all trip depending on if a TRIPID is passed.
+2. Section for adding a delivery to an existing trip.
+3. Section for deleting a Delivery of an existing trip.
 
 The features this part plans to have:
 - An index page to display existing trips & deliverys.
