@@ -8,7 +8,12 @@ tripsRouter.get("/", async (request, response) => {
   response.json(trips);
 });
 
-tripsRouter.get("/init", async (request, response) => {
+tripsRouter.post("/reset", async (request, response) => {
+  await Trip.deleteMany({});
+  response.status(204).end();
+});
+
+tripsRouter.post("/init", async (request, response) => {
   const fileName = "data/trips.csv";
   var arrayToInsert = [];
   csvtojson()
@@ -26,12 +31,13 @@ tripsRouter.get("/init", async (request, response) => {
         };
         arrayToInsert.push(oneRow);
       }
-      Trip.insertMany(arrayToInsert)
+      Trip.insertMany(arrayToInsert);
+      response.status(201).end();
     });
 });
 
 tripsRouter.get("/:id", async (request, response) => {
-  const trip = await Trip.find({ trip_id: request.params.id });
+  const trip = await Trip.findOne({ trip_id: request.params.id });
   if (trip) {
     response.json(trip.toJSON());
   } else {

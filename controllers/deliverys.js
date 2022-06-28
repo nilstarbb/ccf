@@ -8,7 +8,7 @@ deliverysRouter.get("/", async (request, response) => {
   response.json(deliverys);
 });
 
-deliverysRouter.get("/init", async (request, response) => {
+deliverysRouter.post("/init", (request, response) => {
   const fileName = "data/delivery.csv";
   var arrayToInsert = [];
   csvtojson()
@@ -24,9 +24,16 @@ deliverysRouter.get("/init", async (request, response) => {
         };
         arrayToInsert.push(oneRow);
       }
-      Delivery.insertMany(arrayToInsert);
+      const deliverys = Delivery.insertMany(arrayToInsert);
+      // response.json(deliverys);
+      response.status(201).end();
     });
 });
+
+deliverysRouter.post("/reset", async (request, response) => {
+  await Delivery.deleteMany({});
+  response.status(204).end();
+})
 
 deliverysRouter.get("/:id", async (request, response) => {
   const delivery = await Delivery.findById(request.params.id);
